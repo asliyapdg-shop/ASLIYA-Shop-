@@ -1,18 +1,18 @@
 export default function Home() {
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", color: "#111" }}>
+    <div style={{ fontFamily: "system-ui, Arial", color: "#111" }}>
 
       {/* HEADER */}
       <header style={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px 40px",
-        background: "#111",
+        padding: "20px 48px",
+        background: "#0f172a",
         color: "#fff"
       }}>
-        <h2>ASLIYA Shop</h2>
-        <nav style={{ display: "flex", gap: 20 }}>
+        <h2 style={{ margin: 0 }}>ASLIYA Shop</h2>
+        <nav style={{ display: "flex", gap: 24 }}>
           <a style={{ color: "#fff", textDecoration: "none" }} href="#">Accueil</a>
           <a style={{ color: "#fff", textDecoration: "none" }} href="#">Produits</a>
           <a style={{ color: "#fff", textDecoration: "none" }} href="#">Contact</a>
@@ -21,84 +21,88 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{
-        padding: "100px 40px",
+        padding: "120px 24px",
         textAlign: "center",
-        background: "linear-gradient(135deg, #f5f5f5, #eaeaea)"
+        background: "linear-gradient(135deg, #0f172a, #1e293b)",
+        color: "#fff"
       }}>
-        <h1 style={{ fontSize: 48, marginBottom: 20 }}>
-          Achetez malin avec ASLIYA Shop
+        <h1 style={{ fontSize: 52, marginBottom: 16 }}>
+          La nouvelle façon d’acheter en ligne
         </h1>
-        <p style={{ fontSize: 20, marginBottom: 30 }}>
-          Les meilleurs produits, au meilleur prix
+        <p style={{ fontSize: 20, opacity: 0.9, marginBottom: 32 }}>
+          Qualité, confiance et prix justes avec ASLIYA Shop
         </p>
         <button style={{
-          padding: "15px 35px",
+          padding: "16px 36px",
           fontSize: 16,
-          background: "#111",
-          color: "#fff",
           border: "none",
+          borderRadius: 6,
+          background: "#22c55e",
+          color: "#000",
           cursor: "pointer"
         }}>
-          Découvrir les produits
+          Voir les produits
         </button>
       </section>
 
       {/* AVANTAGES */}
       <section style={{
+        padding: "80px 48px",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        gap: 30,
-        padding: "60px 40px",
+        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gap: 40,
         background: "#fff"
       }}>
         <div>
           <h3>🚚 Livraison rapide</h3>
-          <p>Recevez vos commandes rapidement</p>
+          <p>Partout, en toute sécurité</p>
         </div>
         <div>
           <h3>💳 Paiement sécurisé</h3>
-          <p>Transactions 100% protégées</p>
+          <p>Vos données sont protégées</p>
         </div>
         <div>
-          <h3>⭐ Qualité garantie</h3>
-          <p>Produits testés et approuvés</p>
+          <h3>⭐ Produits sélectionnés</h3>
+          <p>Qualité garantie</p>
         </div>
       </section>
 
       {/* PRODUITS */}
-      <section style={{ padding: "60px 40px", background: "#f9f9f9" }}>
-        <h2 style={{ marginBottom: 30 }}>Produits populaires</h2>
+      <section style={{ padding: "80px 48px", background: "#f8fafc" }}>
+        <h2 style={{ marginBottom: 32 }}>Produits populaires</h2>
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: 25
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 32
         }}>
           {[
             { name: "T-shirt premium", price: "10€" },
-            { name: "Sac tendance", price: "20€" },
-            { name: "Chaussures stylées", price: "35€" },
-            { name: "Montre moderne", price: "45€" }
+            { name: "Sac moderne", price: "20€" },
+            { name: "Chaussures élégantes", price: "35€" },
+            { name: "Montre design", price: "45€" }
           ].map((p, i) => (
             <div key={i} style={{
               background: "#fff",
-              padding: 20,
-              borderRadius: 6,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+              padding: 24,
+              borderRadius: 10,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
               textAlign: "center"
             }}>
               <div style={{
-                height: 140,
-                background: "#eee",
-                marginBottom: 15
+                height: 160,
+                background: "#e5e7eb",
+                borderRadius: 8,
+                marginBottom: 16
               }} />
               <h3>{p.name}</h3>
-              <p style={{ fontWeight: "bold" }}>{p.price}</p>
+              <p style={{ fontWeight: "bold", fontSize: 18 }}>{p.price}</p>
               <button style={{
-                marginTop: 10,
-                padding: "10px 20px",
+                marginTop: 12,
+                padding: "10px 24px",
+                borderRadius: 6,
                 border: "none",
-                background: "#111",
+                background: "#0f172a",
                 color: "#fff",
                 cursor: "pointer"
               }}>
@@ -111,9 +115,9 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer style={{
-        padding: 30,
+        padding: 32,
         textAlign: "center",
-        background: "#111",
+        background: "#0f172a",
         color: "#fff"
       }}>
         © 2026 ASLIYA Shop — Tous droits réservés
@@ -121,4 +125,4 @@ export default function Home() {
 
     </div>
   );
-        }
+      }
