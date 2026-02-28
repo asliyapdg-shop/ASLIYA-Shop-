@@ -1,4 +1,4 @@
-        import Image from "next/image";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,9 +10,11 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "space-between",
         padding: "16px 32px",
-        borderBottom: "1px solid #ddd"
+        borderBottom: "1px solid #ddd",
+        background: "#fff"
       }}>
         <Image src="/logo.png" alt="ASLIYA Shop" width={140} height={60} />
+
         <input
           placeholder="Rechercher un produit..."
           style={{
@@ -22,6 +24,7 @@ export default function Home() {
             border: "1px solid #ccc"
           }}
         />
+
         <button style={{
           padding: "10px 20px",
           background: "#ff9900",
@@ -33,24 +36,47 @@ export default function Home() {
         </button>
       </header>
 
-      {/* BANNIÈRE */}
+      {/* HERO AVEC IMAGE */}
       <section style={{
-        padding: 60,
-        background: "#f5f5f5",
-        textAlign: "center"
+        position: "relative",
+        width: "100%",
+        height: "420px"
       }}>
-        <h1 style={{ fontSize: 42 }}>Bienvenue sur ASLIYA Shop</h1>
-        <p>Des milliers de produits au meilleur prix</p>
-        <button style={{
-          marginTop: 20,
-          padding: "14px 30px",
-          background: "#ff9900",
-          border: "none",
-          borderRadius: 6,
-          fontSize: 16
+        <Image
+          src="/hero.jpg"
+          alt="Shopping ASLIYA"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,0,0,0.45)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#fff",
+          textAlign: "center"
         }}>
-          Voir les offres
-        </button>
+          <h1 style={{ fontSize: 48, marginBottom: 12 }}>
+            Bienvenue sur ASLIYA Shop
+          </h1>
+          <p style={{ fontSize: 20, marginBottom: 24 }}>
+            Des milliers de produits au meilleur prix
+          </p>
+          <button style={{
+            padding: "14px 36px",
+            background: "#ff9900",
+            border: "none",
+            borderRadius: 8,
+            fontSize: 16,
+            cursor: "pointer"
+          }}>
+            Découvrir les offres
+          </button>
+        </div>
       </section>
 
       {/* PRODUITS */}
@@ -59,7 +85,7 @@ export default function Home() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
           gap: 20,
           marginTop: 20
         }}>
@@ -75,7 +101,7 @@ export default function Home() {
               borderRadius: 8
             }}>
               <div style={{
-                height: 150,
+                height: 160,
                 background: "#eee",
                 marginBottom: 10
               }} />
@@ -108,4 +134,4 @@ export default function Home() {
 
     </div>
   );
-        }
+              }
