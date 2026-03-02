@@ -2,23 +2,23 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div style={{ fontFamily: "Arial, sans-serif" }}>
+    <main style={{ fontFamily: "Arial, sans-serif" }}>
 
       {/* HEADER */}
       <header style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        padding: "16px 32px",
+        padding: "15px 30px",
         borderBottom: "1px solid #ddd",
         background: "#fff"
       }}>
-        <Image src="/logo.png" alt="ASLIYA Shop" width={140} height={60} />
+        <Image src="/logo.png" alt="ASLIYA Shop" width={130} height={60} />
 
         <input
-          placeholder="Rechercher un produit..."
+          placeholder="Rechercher un produit"
           style={{
-            width: "40%",
+            marginLeft: 20,
+            flex: 1,
             padding: 10,
             borderRadius: 6,
             border: "1px solid #ccc"
@@ -26,25 +26,21 @@ export default function Home() {
         />
 
         <button style={{
+          marginLeft: 20,
           padding: "10px 20px",
           background: "#ff9900",
           border: "none",
-          borderRadius: 6,
-          cursor: "pointer"
+          borderRadius: 6
         }}>
           Panier
         </button>
       </header>
 
-      {/* HERO AVEC IMAGE */}
-      <section style={{
-        position: "relative",
-        width: "100%",
-        height: "420px"
-      }}>
+      {/* IMAGE PRINCIPALE */}
+      <section style={{ position: "relative", height: 400 }}>
         <Image
           src="/hero.jpg"
-          alt="Shopping ASLIYA"
+          alt="ASLIYA Shop"
           fill
           style={{ objectFit: "cover" }}
         />
@@ -52,29 +48,26 @@ export default function Home() {
         <div style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(0,0,0,0.45)",
+          background: "rgba(0,0,0,0.5)",
+          color: "#fff",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
-          color: "#fff",
+          alignItems: "center",
           textAlign: "center"
         }}>
-          <h1 style={{ fontSize: 48, marginBottom: 12 }}>
-            Bienvenue sur ASLIYA Shop
-          </h1>
-          <p style={{ fontSize: 20, marginBottom: 24 }}>
-            Des milliers de produits au meilleur prix
+          <h1 style={{ fontSize: 42 }}>Bienvenue sur ASLIYA Shop</h1>
+          <p style={{ fontSize: 18, margin: "10px 0" }}>
+            Achetez tout, au meilleur prix
           </p>
           <button style={{
-            padding: "14px 36px",
+            marginTop: 15,
+            padding: "12px 30px",
             background: "#ff9900",
             border: "none",
-            borderRadius: 8,
-            fontSize: 16,
-            cursor: "pointer"
+            borderRadius: 6
           }}>
-            Découvrir les offres
+            Voir les offres
           </button>
         </div>
       </section>
@@ -85,35 +78,35 @@ export default function Home() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: 20,
           marginTop: 20
         }}>
           {[
-            { name: "Casque Bluetooth", price: "25€" },
-            { name: "Montre connectée", price: "45€" },
-            { name: "Sac à main", price: "30€" },
-            { name: "Chaussures sport", price: "50€" }
-          ].map((p, i) => (
+            "Casque Bluetooth",
+            "Montre connectée",
+            "Sac élégant",
+            "Chaussures sport"
+          ].map((name, i) => (
             <div key={i} style={{
               border: "1px solid #ddd",
-              padding: 16,
+              padding: 15,
               borderRadius: 8
             }}>
               <div style={{
-                height: 160,
+                height: 150,
                 background: "#eee",
                 marginBottom: 10
               }} />
-              <strong>{p.name}</strong>
-              <p>{p.price}</p>
+              <strong>{name}</strong>
+              <p>Prix avantageux</p>
               <button style={{
                 width: "100%",
-                padding: 10,
-                background: "#111",
+                padding: 8,
+                background: "#000",
                 color: "#fff",
                 border: "none",
-                borderRadius: 6
+                borderRadius: 4
               }}>
                 Ajouter au panier
               </button>
@@ -129,9 +122,9 @@ export default function Home() {
         background: "#111",
         color: "#fff"
       }}>
-        © 2026 ASLIYA Shop
+        © ASLIYA Shop 2026
       </footer>
 
-    </div>
+    </main>
   );
-              }
+                }
