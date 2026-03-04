@@ -10,7 +10,7 @@ export default function Home() {
     { name: "Sac Élégant", price: "45€" },
     { name: "Chaussures Sport", price: "70€" },
     { name: "Parfum Luxe", price: "89€" },
-    { name: "Lunettes Tendance", price: "35€" },
+    { name: "Lunettes Premium", price: "35€" },
   ];
 
   const filtered = products.filter((p) =>
@@ -25,25 +25,24 @@ export default function Home() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "15px 40px",
+        padding: "20px 80px",
         background: "#0f172a",
         color: "white",
         position: "sticky",
         top: 0,
         zIndex: 1000
       }}>
-        <h2 style={{ color: "#f59e0b", fontWeight: "bold" }}>
-          ASLIYA Shop
+        <h2 style={{ fontWeight: "bold", fontSize: 24 }}>
+          ASLIYA <span style={{ color: "#f59e0b" }}>Shop</span>
         </h2>
 
         <div style={{
           flex: 1,
-          margin: "0 40px",
+          margin: "0 50px",
           display: "flex",
           background: "white",
           borderRadius: 50,
-          overflow: "hidden",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
+          overflow: "hidden"
         }}>
           <input
             value={query}
@@ -51,17 +50,15 @@ export default function Home() {
             placeholder="Rechercher un produit..."
             style={{
               flex: 1,
-              padding: "12px 20px",
+              padding: "14px 25px",
               border: "none",
-              outline: "none",
-              fontSize: 14
+              outline: "none"
             }}
           />
-
           <button style={{
             background: "#f59e0b",
             border: "none",
-            padding: "0 25px",
+            padding: "0 30px",
             fontWeight: "bold",
             cursor: "pointer"
           }}>
@@ -69,65 +66,89 @@ export default function Home() {
           </button>
         </div>
 
-        <div style={{ display: "flex", gap: 20 }}>
-          <span style={{ cursor: "pointer" }}>Compte</span>
-          <span style={{ cursor: "pointer" }}>Panier 🛒</span>
+        <div style={{ display: "flex", gap: 25 }}>
+          <span>Connexion</span>
+          <span>Panier 🛒</span>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section style={{
-        height: "80vh",
-        background: "linear-gradient(135deg,#0f172a,#1e293b)",
+        height: "75vh",
+        background: "linear-gradient(135deg,#111,#1e293b)",
         color: "white",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        textAlign: "center",
-        flexDirection: "column"
+        flexDirection: "column",
+        textAlign: "center"
       }}>
         <h1 style={{ fontSize: 60, fontWeight: "bold" }}>
-          L'avenir du Shopping
+          Marketplace Premium
         </h1>
         <p style={{ marginTop: 20, fontSize: 18, opacity: 0.8 }}>
-          Expérience premium, livraison rapide, paiement sécurisé.
+          Les meilleures offres. Expérience moderne. Paiement sécurisé.
         </p>
-
         <button style={{
           marginTop: 30,
           padding: "15px 40px",
           background: "#f59e0b",
           border: "none",
           borderRadius: 50,
-          fontSize: 16,
           fontWeight: "bold",
-          cursor: "pointer",
-          transition: "0.3s",
-        }}
-        onMouseOver={(e)=> e.target.style.transform="scale(1.05)"}
-        onMouseOut={(e)=> e.target.style.transform="scale(1)"}
-        >
-          Explorer maintenant
+          cursor: "pointer"
+        }}>
+          Explorer
         </button>
       </section>
 
-      {/* PRODUITS */}
-      <section style={{ padding: 60 }}>
-        <h2 style={{ fontSize: 28, marginBottom: 30 }}>
-          Produits populaires
+      {/* SECTION CATEGORIES */}
+      <section style={{ padding: "70px 80px" }}>
+        <h2 style={{ fontSize: 30, marginBottom: 40 }}>
+          Catégories Populaires
         </h2>
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+          gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
           gap: 30
+        }}>
+          {["Électronique", "Mode", "Maison", "Accessoires"].map((cat, i) => (
+            <div key={i} style={{
+              background: "white",
+              padding: 40,
+              borderRadius: 25,
+              textAlign: "center",
+              boxShadow: "0 15px 35px rgba(0,0,0,0.08)",
+              cursor: "pointer",
+              transition: "0.3s"
+            }}
+            onMouseOver={(e)=> e.currentTarget.style.transform="translateY(-8px)"}
+            onMouseOut={(e)=> e.currentTarget.style.transform="translateY(0)"}
+            >
+              <h3>{cat}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PRODUITS */}
+      <section style={{ padding: "70px 80px", background: "#eef2f7" }}>
+        <h2 style={{ fontSize: 30, marginBottom: 40 }}>
+          Meilleures Ventes
+        </h2>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+          gap: 40
         }}>
           {filtered.map((product, i) => (
             <div key={i} style={{
               background: "white",
-              borderRadius: 20,
-              padding: 20,
-              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+              borderRadius: 25,
+              padding: 25,
+              boxShadow: "0 15px 35px rgba(0,0,0,0.07)",
               transition: "0.3s",
               cursor: "pointer"
             }}
@@ -135,31 +156,31 @@ export default function Home() {
             onMouseOut={(e)=> e.currentTarget.style.transform="translateY(0)"}
             >
               <div style={{
-                height: 200,
-                background: "linear-gradient(135deg,#ddd,#eee)",
-                borderRadius: 15,
-                marginBottom: 15
+                height: 220,
+                background: "#f3f4f6",
+                borderRadius: 20,
+                marginBottom: 20
               }} />
 
               <h3>{product.name}</h3>
               <p style={{
                 color: "#f59e0b",
+                fontSize: 20,
                 fontWeight: "bold",
-                fontSize: 18
+                marginTop: 8
               }}>
                 {product.price}
               </p>
 
               <button style={{
-                marginTop: 10,
+                marginTop: 15,
                 width: "100%",
-                padding: 10,
-                background: "#0f172a",
+                padding: 12,
+                background: "#111",
                 color: "white",
                 border: "none",
-                borderRadius: 10,
-                fontWeight: "bold",
-                cursor: "pointer"
+                borderRadius: 12,
+                fontWeight: "bold"
               }}>
                 Ajouter au panier
               </button>
@@ -168,24 +189,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROMO SECTION */}
+      {/* AVANTAGES */}
       <section style={{
-        margin: 60,
-        padding: 60,
-        background: "linear-gradient(135deg,#f59e0b,#fb923c)",
-        borderRadius: 30,
-        textAlign: "center",
-        color: "white"
+        background: "#0f172a",
+        color: "white",
+        padding: "80px 60px",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+        gap: 40
       }}>
-        <h2 style={{ fontSize: 32 }}>🔥 Mega Promotion</h2>
-        <p style={{ marginTop: 15 }}>
-          Jusqu'à -70% sur les articles sélectionnés
-        </p>
+        <div>
+          <h3>🚚 Livraison Rapide</h3>
+          <p style={{ opacity: 0.7 }}>
+            Expédition sous 24h partout.
+          </p>
+        </div>
+
+        <div>
+          <h3>🔒 Paiement Sécurisé</h3>
+          <p style={{ opacity: 0.7 }}>
+            Transactions protégées.
+          </p>
+        </div>
+
+        <div>
+          <h3>⭐ Qualité Premium</h3>
+          <p style={{ opacity: 0.7 }}>
+            Satisfaction garantie.
+          </p>
+        </div>
       </section>
 
       {/* FOOTER */}
       <footer style={{
-        background: "#0f172a",
+        background: "#000",
         color: "white",
         padding: 40,
         textAlign: "center"
@@ -195,4 +232,4 @@ export default function Home() {
 
     </main>
   );
-}
+                }
