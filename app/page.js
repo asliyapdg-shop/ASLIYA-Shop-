@@ -1,186 +1,165 @@
 "use client";
-
 import { useState } from "react";
-import Image from "next/image";
 
 export default function Home() {
   const [query, setQuery] = useState("");
 
-  const productsList = [
-    "Casque Bluetooth",
-    "Montre connectée",
-    "Sac élégant",
-    "Chaussures sport",
-    "Parfum luxe",
-    "Lunettes tendance"
+  const products = [
+    { name: "Casque Bluetooth", price: "39€" },
+    { name: "Montre Connectée", price: "59€" },
+    { name: "Sac Élégant", price: "45€" },
+    { name: "Chaussures Sport", price: "70€" },
+    { name: "Parfum Luxe", price: "89€" },
+    { name: "Lunettes Tendance", price: "35€" },
   ];
 
-  const filtered = productsList.filter((item) =>
-    item.toLowerCase().includes(query.toLowerCase())
+  const filtered = products.filter((p) =>
+    p.name.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
-    <main style={{ fontFamily: "Arial, sans-serif", background: "#f3f4f6" }}>
+    <main style={{ fontFamily: "system-ui", background: "#f8f9fa" }}>
 
-      {/* HEADER */}
-      <header style={{
+      {/* NAVBAR */}
+      <nav style={{
         display: "flex",
         alignItems: "center",
-        gap: 20,
+        justifyContent: "space-between",
         padding: "15px 40px",
-        background: "#fff",
-        borderBottom: "1px solid #ddd"
+        background: "#0f172a",
+        color: "white",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000
       }}>
-        <Image src="/logo.png" alt="ASLIYA Shop" width={130} height={60} />
+        <h2 style={{ color: "#f59e0b", fontWeight: "bold" }}>
+          ASLIYA Shop
+        </h2>
 
-        {/* SEARCH BAR */}
         <div style={{
           flex: 1,
-          position: "relative",
+          margin: "0 40px",
           display: "flex",
-          alignItems: "center",
-          background: "#fff",
-          border: "1px solid #ccc",
-          borderRadius: 6
+          background: "white",
+          borderRadius: 50,
+          overflow: "hidden",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
         }}>
-          <select style={{
-            padding: 10,
-            border: "none",
-            borderRight: "1px solid #ccc",
-            background: "#f3f4f6"
-          }}>
-            <option>Toutes catégories</option>
-            <option>Électronique</option>
-            <option>Mode</option>
-            <option>Maison</option>
-          </select>
-
-          <span style={{ padding: "0 10px" }}>🔍</span>
-
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Rechercher sur ASLIYA Shop"
+            placeholder="Rechercher un produit..."
             style={{
               flex: 1,
-              padding: 10,
+              padding: "12px 20px",
               border: "none",
-              outline: "none"
+              outline: "none",
+              fontSize: 14
             }}
           />
 
           <button style={{
-            padding: "10px 20px",
             background: "#f59e0b",
             border: "none",
+            padding: "0 25px",
+            fontWeight: "bold",
             cursor: "pointer"
           }}>
-            Rechercher
+            🔍
           </button>
-
-          {/* Suggestions */}
-          {query && (
-            <div style={{
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              right: 0,
-              background: "#fff",
-              border: "1px solid #ccc",
-              zIndex: 10
-            }}>
-              {filtered.length > 0 ? (
-                filtered.map((item, i) => (
-                  <div key={i} style={{
-                    padding: 10,
-                    cursor: "pointer",
-                    borderBottom: "1px solid #eee"
-                  }}>
-                    {item}
-                  </div>
-                ))
-              ) : (
-                <div style={{ padding: 10 }}>Aucun résultat</div>
-              )}
-            </div>
-          )}
         </div>
+
+        <div style={{ display: "flex", gap: 20 }}>
+          <span style={{ cursor: "pointer" }}>Compte</span>
+          <span style={{ cursor: "pointer" }}>Panier 🛒</span>
+        </div>
+      </nav>
+
+      {/* HERO SECTION */}
+      <section style={{
+        height: "80vh",
+        background: "linear-gradient(135deg,#0f172a,#1e293b)",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        flexDirection: "column"
+      }}>
+        <h1 style={{ fontSize: 60, fontWeight: "bold" }}>
+          L'avenir du Shopping
+        </h1>
+        <p style={{ marginTop: 20, fontSize: 18, opacity: 0.8 }}>
+          Expérience premium, livraison rapide, paiement sécurisé.
+        </p>
 
         <button style={{
-          padding: "10px 20px",
-          background: "#2563eb",
-          color: "#fff",
+          marginTop: 30,
+          padding: "15px 40px",
+          background: "#f59e0b",
           border: "none",
-          borderRadius: 6
-        }}>
-          Panier
+          borderRadius: 50,
+          fontSize: 16,
+          fontWeight: "bold",
+          cursor: "pointer",
+          transition: "0.3s",
+        }}
+        onMouseOver={(e)=> e.target.style.transform="scale(1.05)"}
+        onMouseOut={(e)=> e.target.style.transform="scale(1)"}
+        >
+          Explorer maintenant
         </button>
-      </header>
-
-      {/* HERO IMAGE */}
-      <section style={{ position: "relative", height: 420 }}>
-        <Image
-          src="/hero.jpg"
-          alt="ASLIYA Shop"
-          fill
-          style={{ objectFit: "cover" }}
-        />
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0,0,0,0.5)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "#fff",
-          textAlign: "center"
-        }}>
-          <h1 style={{ fontSize: 44 }}>Bienvenue sur ASLIYA Shop</h1>
-          <p>Votre marketplace moderne et sécurisée</p>
-          <button style={{
-            marginTop: 15,
-            padding: "12px 30px",
-            background: "#f59e0b",
-            border: "none",
-            borderRadius: 6
-          }}>
-            Voir les offres
-          </button>
-        </div>
       </section>
 
       {/* PRODUITS */}
-      <section style={{ padding: 40 }}>
-        <h2>Produits populaires</h2>
+      <section style={{ padding: 60 }}>
+        <h2 style={{ fontSize: 28, marginBottom: 30 }}>
+          Produits populaires
+        </h2>
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: 20,
-          marginTop: 20
+          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+          gap: 30
         }}>
-          {productsList.map((name, i) => (
+          {filtered.map((product, i) => (
             <div key={i} style={{
-              background: "#fff",
-              padding: 15,
-              borderRadius: 8,
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
-            }}>
+              background: "white",
+              borderRadius: 20,
+              padding: 20,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+              transition: "0.3s",
+              cursor: "pointer"
+            }}
+            onMouseOver={(e)=> e.currentTarget.style.transform="translateY(-10px)"}
+            onMouseOut={(e)=> e.currentTarget.style.transform="translateY(0)"}
+            >
               <div style={{
-                height: 150,
-                background: "#eee",
-                marginBottom: 10
+                height: 200,
+                background: "linear-gradient(135deg,#ddd,#eee)",
+                borderRadius: 15,
+                marginBottom: 15
               }} />
-              <strong>{name}</strong>
-              <p>Prix attractif</p>
+
+              <h3>{product.name}</h3>
+              <p style={{
+                color: "#f59e0b",
+                fontWeight: "bold",
+                fontSize: 18
+              }}>
+                {product.price}
+              </p>
+
               <button style={{
+                marginTop: 10,
                 width: "100%",
-                padding: 8,
-                background: "#111",
-                color: "#fff",
+                padding: 10,
+                background: "#0f172a",
+                color: "white",
                 border: "none",
-                borderRadius: 4
+                borderRadius: 10,
+                fontWeight: "bold",
+                cursor: "pointer"
               }}>
                 Ajouter au panier
               </button>
@@ -189,16 +168,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROMO SECTION */}
+      <section style={{
+        margin: 60,
+        padding: 60,
+        background: "linear-gradient(135deg,#f59e0b,#fb923c)",
+        borderRadius: 30,
+        textAlign: "center",
+        color: "white"
+      }}>
+        <h2 style={{ fontSize: 32 }}>🔥 Mega Promotion</h2>
+        <p style={{ marginTop: 15 }}>
+          Jusqu'à -70% sur les articles sélectionnés
+        </p>
+      </section>
+
       {/* FOOTER */}
       <footer style={{
-        padding: 20,
-        textAlign: "center",
-        background: "#111",
-        color: "#fff"
+        background: "#0f172a",
+        color: "white",
+        padding: 40,
+        textAlign: "center"
       }}>
         © 2026 ASLIYA Shop — Tous droits réservés
       </footer>
 
     </main>
   );
-        }
+}
